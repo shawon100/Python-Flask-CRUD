@@ -1,0 +1,33 @@
+
+{% include "header.html" %}
+
+
+{% block body %}
+
+
+ <div class="container">
+     <div class="row">
+         <div class="col-sm-4">
+
+         </div>
+         <div class="col-sm-6">
+             <div class="sidebar">
+                 <center><b>Python Flask Read</b></center><br><br>
+                  <!--<b><a href="http://shawonruet.me" target="_blank">my Blog</a> </b>-->
+                 <center><a class="btn btn-info" href="/register/">Register</a></center><br>
+                 {% for i in user %}
+                 <img src="../images/{{i.4}}" width="150px" height="150px"/><br><br>
+                  Name : {{i.1}} <br> Email: {{i.2}} <br><br><a class="btn btn-success btn-sm" href="/edit/{{i.0}}">Edit </a> <a class="btn btn-danger btn-sm" href="/delete/{{i.0}}">Delete</a><br><br>
+                 {% endfor %}
+             </div>
+         </div>
+         <div class="col-sm-2">
+
+         </div>
+     </div>
+ </div>
+
+
+  {% include "footer.html" %}
+{% endblock %}
+

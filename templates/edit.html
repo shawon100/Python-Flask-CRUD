@@ -1,0 +1,39 @@
+
+{% include "header.html" %}
+
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="sidebar">
+                <center><b>Python Flask Update</b></center><br>
+                <center><a class="btn btn-info" href="/">Home</a></center><br>
+                <div class="form-group">
+                    <form action="/update/{{id}}" method="POST"  enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                        <input type="text" class="form-control" name="name" value="{% for i in user %}{{i.1}}{% endfor %}"/><br>
+                        <input type="email" class="form-control" name="email" value="{% for i in user %}{{i.2}}{% endfor %}"/><br>
+                        <input type="password" class="form-control" name="pass" value="{% for i in user %}{{i.3}}{% endfor %}"/><br>
+                        <input type="file"  name="image" accept="image/*"><br>
+                       <center> <input type="submit" class="btn btn-success" value="Submit"/></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+    </div>
+</div>
+
+
+  {% include "footer.html" %}
+{% endblock %}
+
